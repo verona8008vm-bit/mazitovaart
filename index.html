@@ -1,136 +1,88 @@
-﻿ВероникаХудожница🎨 MazitovaArt, [25.02.2026 18:50]
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mazitova Art Studio</title>
+
 <style>
-    body { font-family: Arial, sans-serif; margin:0; padding:0; line-height:1.6; background:#f9f9f9; color:#333; }
-    header, section { padding: 40px 20px; max-width: 1000px; margin: auto; }
-    header { background:#ffebcd; text-align:center; }
-    h1 { margin-bottom:10px; }
-    h2 { margin-top:40px; }
-    .buttons a { display:inline-block; margin:10px; padding:10px 20px; background:#ff6f61; color:white; text-decoration:none; border-radius:5px; }
-    .cards { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; }
-    .card { background:white; padding:20px; width:220px; border-radius:10px; box-shadow:0 2px 5px rgba(0,0,0,0.1); text-align:center; }
-    .card img { width:200px; height:auto; border-radius:5px; }
-    .toggle-lang { position:fixed; top:10px; right:10px; }
-    .toggle-lang button { margin-left:5px; padding:5px 10px; cursor:pointer; }
+body { font-family: Arial; margin:0; background:#f9f9f9; color:#333; }
+header { background:#ffe8d6; padding:40px; text-align:center; }
+h1 { margin:0; }
+.container { max-width:1100px; margin:auto; padding:20px; }
+.cards { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; }
+.card { background:white; width:250px; padding:15px; border-radius:12px; box-shadow:0 4px 8px rgba(0,0,0,0.1); }
+.card img { width:100%; border-radius:8px; }
+.price { font-weight:bold; margin-top:10px; }
+.buy { display:inline-block; margin-top:10px; padding:8px 15px; background:#ff6b6b; color:white; text-decoration:none; border-radius:6px; }
+.toggle { position:fixed; top:10px; right:10px; }
+button { padding:5px 10px; margin-left:5px; cursor:pointer; }
+footer { background:#eee; padding:20px; text-align:center; margin-top:40px; }
 </style>
 </head>
+
 <body>
 
-<div class="toggle-lang">
-    <button onclick="showLang('ru')">RU</button>
-    <button onclick="showLang('en')">EN</button>
+<div class="toggle">
+<button onclick="setLang('ru')">RU</button>
+<button onclick="setLang('en')">EN</button>
 </div>
 
 <header>
-    <h1 class="lang-ru">Mazitova Art Studio</h1>
-    <h1 class="lang-en" style="display:none;">Mazitova Art Studio</h1>
-    <p class="lang-ru">Авторские раскраски для детей и взрослых. Развивайте воображение через творчество.</p>
-    <p class="lang-en" style="display:none;">Author Coloring Books for Kids & Adults. Creative fun for imagination.</p>
-    <div class="buttons">
-        <a href="#buy" class="lang-ru">Купить / Buy Now</a>
-        <a href="#collection" class="lang-ru">Смотреть коллекцию / View Collection</a>
-    </div>
+<h1>Mazitova Art Studio</h1>
+<p id="subtitle">Авторские раскраски для детей и взрослых</p>
 </header>
 
-<section id="about">
-    <h2 class="lang-ru">Обо мне</h2>
-    <h2 class="lang-en" style="display:none;">About Me</h2>
-    <p class="lang-ru">Меня зовут Вероника, я художник и создатель проекта Mazitova Art. Я создаю авторские раскраски, арт-наборы и провожу творческие арт-вечера. Каждая раскраска — это история и пространство для фантазии.</p>
-    <p class="lang-en" style="display:none;">My name is Veronika, I am an artist and creator of Mazitova Art. I create unique coloring books and art kits, and organize creative art events. Each coloring book is a story and a space for imagination.</p>
-</section>
+<div class="container">
+<div class="cards" id="books-container"></div>
+</div>
 
-<section id="collection">
-    <h2 class="lang-ru">Раскраски</h2>
-    <h2 class="lang-en" style="display:none;">Coloring Books</h2>
-    <div class="cards">
-
-        <div class="card">
-            <img src="[ТВОЯ КАРТИНКА]" alt="Натюрморты">
-            <h3 class="lang-ru">Натюрморты</h3>
-            <h3 class="lang-en" style="display:none;">Still Life</h3>
-            <p class="lang-ru">20 натюрмортов, PDF, есть объяснение слов. Возраст: 7+</p>
-            <p class="lang-en" style="display:none;">20 still lifes, PDF, includes explanation of terms. Age: 7+</p>
-            <p>5$</p>
-            <a href="https://t.me/твоя_ссылка" target="_blank">Купить / Buy</a>
-        </div>
-
-        <div class="card">
-            <img src="[ТВОЯ КАРТИНКА]" alt="Котики">
-            <h3 class="lang-ru">Котики</h3>
-            <h3 class="lang-en" style="display:none;">Cats</h3>
-            <p class="lang-ru">19 авторских картинок. Возраст: 5+</p>
-            <p class="lang-en" style="display:none;">19 unique images. Age: 5+</p>
-            <p>5$</p>
-            <a href="https://t.me/твоя_ссылка" target="_blank">Купить / Buy</a>
-        </div>
-
-        <div class="card">
-            <img src="[ТВОЯ КАРТИНКА]" alt="Эмоции">
-            <h3 class="lang-ru">Эмоции</h3>
-            <h3 class="lang-en" style="display:none;">Emotions</h3>
-            <p class="lang-ru">15 эмоций человека, PDF. Возраст: 9+</p>
-            <p class="lang-en" style="display:none;">15 human emotions, PDF. Age: 9+</p>
-            <p>5$</p>
-            <a href="https://t.me/твоя_ссылка" target="_blank">Купить / Buy</a>
-        </div>
-
-ВероникаХудожница🎨 MazitovaArt, [25.02.2026 18:50]
-<div class="card">
-            <img src="[ТВОЯ КАРТИНКА]" alt="Бойцы">
-            <h3 class="lang-ru">Бойцы</h3>
-            <h3 class="lang-en" style="display:none;">Fighters</h3>
-            <p class="lang-ru">25 бойцов, похожих на Бравлстарс, PDF. Возраст: 5+</p>
-            <p class="lang-en" style="display:none;">25 fighters, inspired by Brawl Stars, PDF. Age: 5+</p>
-            <p>5$</p>
-            <a href="https://t.me/твоя_ссылка" target="_blank">Купить / Buy</a>
-        </div>
-
-        <div class="card">
-            <img src="[ТВОЯ КАРТИНКА]" alt="Жанры в искусстве">
-            <h3 class="lang-ru">Жанры в искусстве</h3>
-            <h3 class="lang-en" style="display:none;">Art Genres</h3>
-            <p class="lang-ru">26 картинок + страница с объяснением жанров, сначала с названиями, потом без. Возраст: 7+</p>
-            <p class="lang-en" style="display:none;">26 images + page explaining art genres. First with names, then without. Age: 7+</p>
-            <p>5$</p>
-            <a href="https://t.me/твоя_ссылка" target="_blank">Купить / Buy</a>
-        </div>
-
-    </div>
-</section>
-
-<section id="bundle">
-    <h2 class="lang-ru">Пакет со скидкой</h2>
-    <h2 class="lang-en" style="display:none;">Full Coloring Bundle</h2>
-    <p class="lang-ru">Все 5 раскрасок сразу — 20$ вместо 25$</p>
-    <p class="lang-en" style="display:none;">All 5 coloring books at once — 20$ instead of 25$</p>
-    <a href="https://t.me/твоя_ссылка" target="_blank">Купить набор / Buy Bundle</a>
-</section>
-
-<section id="buy">
-    <h2 class="lang-ru">Как купить</h2>
-    <h2 class="lang-en" style="display:none;">How to Buy</h2>
-    <p class="lang-ru">1. Переведите оплату 5$ на карту<br>2. Отправьте чек в Telegram: @твоя_ссылка<br>3. Получите PDF</p>
-    <p class="lang-en" style="display:none;">1. Make a payment of 5$<br>2. Send receipt via Telegram: @your_username<br>3. Receive PDF files</p>
-</section>
-
-<section id="contacts">
-    <h2 class="lang-ru">Контакты</h2>
-    <h2 class="lang-en" style="display:none;">Contacts</h2>
-    <p class="lang-ru">Telegram: @твоя_ссылка<br>Instagram: @твоя_ссылка<br>Email: твой_email</p>
-    <p class="lang-en" style="display:none;">Telegram: @your_username<br>Instagram: @your_username<br>Email: your_email</p>
-</section>
+<footer>
+<p>Telegram: <a href="https://t.me/raskraskimazitovaart" target="_blank">@raskraskimazitovaart</a></p>
+<p>Instagram: <a href="https://www.instagram.com/mazitovaart" target="_blank">@mazitovaart</a></p>
+<p>Email: mazitovaart@gmail.com</p>
+</footer>
 
 <script>
-function showLang(lang) {
-    document.querySelectorAll('.lang-ru').forEach(el => el.style.display = lang==='ru' ? '' : 'none');
-    document.querySelectorAll('.lang-en').forEach(el => el.style.display = lang==='en' ? '' : 'none');
+let currentLang = "ru";
+
+function setLang(lang) {
+  currentLang = lang;
+  loadBooks();
+  document.getElementById("subtitle").innerText =
+    lang === "ru"
+      ? "Авторские раскраски для детей и взрослых"
+      : "Author Coloring Books for Kids & Adults";
 }
+
+function loadBooks() {
+  fetch("books.json")
+    .then(response => response.json())
+    .then(data => {
+      const container = document.getElementById("books-container");
+      container.innerHTML = "";
+
+      data.forEach(book => {
+        const card = document.createElement("div");
+        card.className = "card";
+
+        card.innerHTML = 
+          <img src="${book.image}" alt="">
+          <h3>${currentLang === "ru" ? book.title_ru : book.title_en}</h3>
+          <p>${currentLang === "ru" ? book.description_ru : book.description_en}</p>
+          <div class="price">${book.price}</div>
+          <a class="buy" href="https://t.me/raskraskimazitovaart" target="_blank">
+            ${currentLang === "ru" ? "Купить" : "Buy"}
+          </a>
+        ;
+
+        container.appendChild(card);
+      });
+    });
+}
+
+loadBooks();
 </script>
 
 </body>
-</html>
+</html>p
