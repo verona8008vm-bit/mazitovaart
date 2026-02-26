@@ -1,0 +1,104 @@
+﻿ВероникаХудожница🎨 MazitovaArt, [26.02.2026 21:21]
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mazitova Art Studio</title>
+<style>
+body { font-family: Arial, sans-serif; margin:0; padding:0; line-height:1.6; background:#f9f9f9; color:#333; }
+header, section { padding: 40px 20px; max-width: 1000px; margin: auto; text-align: center; }
+h1 { margin-bottom:10px; }
+h2 { margin-top:40px; }
+.buttons a { display:inline-block; margin:10px; padding:10px 20px; background:#ff6f61; color:white; text-decoration:none; border-radius:5px; }
+.cards { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; }
+.card { background:white; padding:20px; width:220px; border-radius:10px; box-shadow:0 2px 5px rgba(0,0,0,0.1); text-align:center; }
+.card img { width:200px; height:auto; border-radius:5px; margin-bottom:10px; }
+.inner-img { width:180px; max-width:90%; margin:5px auto; border-radius:5px; display:block; }
+.toggle-lang { position:fixed; top:10px; right:10px; }
+.toggle-lang button { margin-left:5px; padding:5px 10px; cursor:pointer; }
+.logo { display:block; margin:0 auto 20px; width:150px; max-width:80%; height:auto; }
+@media (max-width: 768px) {
+    .logo { width:120px; margin-bottom:15px; }
+    .cards { flex-direction: column; align-items: center; }
+    .card { width: 90%; }
+    header, section { padding: 20px 10px; }
+}
+</style>
+</head>
+<body>
+
+<div class="toggle-lang">
+    <button onclick="showLang('ru')">RU</button>
+    <button onclick="showLang('en')">EN</button>
+</div>
+
+<header>
+    <img src="logotip.jpg" alt="Mazitova Art Logo" class="logo">
+    <p class="lang-ru">Меня зовут Вероника, я художник, создаю авторские раскраски, арт-наборы, провожу творческие арт-вечера и пишу картины для интерьера.</p>
+    <p class="lang-en" style="display:none;">My name is Veronika, I am an artist creating unique coloring books, art kits, organizing creative art events, and painting artworks for interiors.</p>
+    <div class="buttons">
+        <a href="#buy" class="lang-ru">Купить / Buy Now</a>
+        <a href="#collection" class="lang-ru">Смотреть коллекцию / View Collection</a>
+    </div>
+</header>
+
+<section id="collection">
+    <h2 class="lang-ru">Раскраски</h2>
+    <h2 class="lang-en" style="display:none;">Coloring Books</h2>
+    <div class="cards" id="cards-container"></div>
+</section>
+
+<section id="bundle">
+    <h2 class="lang-ru">Пакет со скидкой</h2>
+    <h2 class="lang-en" style="display:none;">Full Coloring Bundle</h2>
+    <p class="lang-ru">Все 5 раскрасок сразу — 20$ вместо 25$</p>
+    <p class="lang-en" style="display:none;">All 5 coloring books at once — 20$ instead of 25$</p>
+    <a href="https://t.me/raskraskimazitovaart" target="_blank">Купить набор / Buy Bundle</a>
+</section>
+
+<section id="buy">
+    <h2 class="lang-ru">Как купить</h2>
+    <h2 class="lang-en" style="display:none;">How to Buy</h2>
+    <p class="lang-ru">1. Переведите оплату 5$ на карту<br>2. Отправьте чек в Telegram: @raskraskimazitovaart<br>3. Получите PDF</p>
+    <p class="lang-en" style="display:none;">1. Make a payment of 5$<br>2. Send receipt via Telegram: @raskraskimazitovaart<br>3. Receive PDF files</p>
+</section>
+
+<section id="contacts">
+    <h2 class="lang-ru">Контакты</h2>
+    <h2 class="lang-en" style="display:none;">Contacts</h2>
+    <p class="lang-ru">Telegram: @raskraskimazitovaart<br>Instagram: @mazitovaart<br>Email: mazitovaart@gmail.com</p>
+    <p class="lang-en" style="display:none;">Telegram: @raskraskimazitovaart<br>Instagram: @mazitovaart<br>Email: mazitovaart@gmail.com</p>
+</section>
+
+<script>
+function showLang(lang) {
+    document.querySelectorAll('.lang-ru').forEach(el => el.style.display = lang==='ru' ? '' : 'none');
+    document.querySelectorAll('.lang-en').forEach(el => el.style.display = lang==='en' ? '' : 'none');
+}
+
+ВероникаХудожница🎨 MazitovaArt, [26.02.2026 21:21]
+fetch('books.json')
+.then(response => response.json())
+.then(data => {
+    const container = document.getElementById('cards-container');
+    data.forEach(book => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = 
+            <img src="${book.cover}" alt="${book.title_ru}">
+            <img src="${book.inside}" alt="${book.title_ru} внутри" class="inner-img">
+            <h3 class="lang-ru">${book.title_ru}</h3>
+            <h3 class="lang-en" style="display:none;">${book.title_en}</h3>
+            <p class="lang-ru">${book.description_ru}</p>
+            <p class="lang-en" style="display:none;">${book.description_en}</p>
+            <p><strong>${book.price}</strong></p>
+            <a href="${book.link}" target="_blank">Купить / Buy</a>
+        ;
+        container.appendChild(card);
+    });
+});
+</script>
+
+</body>
+</html>
