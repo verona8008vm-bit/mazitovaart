@@ -2,8 +2,8 @@
   {
     "title_ru": "Натюрморты",
     "title_en": "Still Life",
-    "cover": "images/natyurmorty.jpg",
-    "inside": "images/natyurmorty2.jpg",
+    "cover": "natyurmorty.jpg",
+    "inside": "natyurmorty2.jpg",
     "description_ru": "20 натюрмортов, PDF, с объяснением терминов. Возраст: 7+",
     "description_en": "20 still lifes, PDF, includes explanation of terms. Age: 7+",
     "price": "5$",
@@ -12,8 +12,8 @@
   {
     "title_ru": "Котики",
     "title_en": "Cats",
-    "cover": "images/kotiki.jpg",
-    "inside": "images/kotiki2.jpg",
+    "cover": "kotiki.jpg",
+    "inside": "kotiki2.jpg",
     "description_ru": "19 авторских картинок. Возраст: 5+",
     "description_en": "19 unique illustrations. Age: 5+",
     "price": "5$",
@@ -22,8 +22,8 @@
   {
     "title_ru": "Эмоции",
     "title_en": "Emotions",
-    "cover": "images/emocii.jpg",
-    "inside": "images/emocii2.jpg",
+    "cover": "emocii.jpg",
+    "inside": "emocii2.jpg",
     "description_ru": "15 эмоций человека, PDF. Возраст: 9+",
     "description_en": "15 human emotions, PDF. Age: 9+",
     "price": "5$",
@@ -32,8 +32,8 @@
   {
     "title_ru": "Бойцы",
     "title_en": "Fighters",
-    "cover": "images/boicy.jpg",
-    "inside": "images/boicy2.jpg",
+    "cover": "boicy.jpg",
+    "inside": "boicy2.jpg",
     "description_ru": "25 бойцов, похожих на Бравлстарс, PDF. Возраст: 5+",
     "description_en": "25 fighters, inspired by Brawl Stars, PDF. Age: 5+",
     "price": "5$",
@@ -42,10 +42,30 @@
   {
     "title_ru": "Жанры в искусстве",
     "title_en": "Art Genres",
-    "cover": "images/janry v iskusstve.jpg",
-    "inside": "images/janry v iskusstve2.jpg",
+    "cover": "janry v iskusstve.jpg",
+    "inside": "janry v iskusstve2.jpg",
     "description_ru": "26 картинок + страница с объяснением жанров. Возраст: 7+",
     "description_en": "26 images + page explaining art genres. Age: 7+",
+    "price": "5$",
+    "link": "https://t.me/raskraskimazitovaart"
+  },
+  {
+    "title_ru": "Still Life (английская версия)",
+    "title_en": "Still Life",
+    "cover": "stilllifes.jpg",
+    "inside": "natyurmorty2.jpg",
+    "description_ru": "20 натюрмортов, PDF, с объяснением терминов. Возраст: 7+",
+    "description_en": "20 still lifes, PDF, includes explanation of terms. Age: 7+",
+    "price": "5$",
+    "link": "https://t.me/raskraskimazitovaart"
+  },
+  {
+    "title_ru": "Cats (английская версия)",
+    "title_en": "Cats",
+    "cover": "Cats.jpg",
+    "inside": "kotiki2.jpg",
+    "description_ru": "19 авторских картинок. Возраст: 5+",
+    "description_en": "19 unique illustrations. Age: 5+",
     "price": "5$",
     "link": "https://t.me/raskraskimazitovaart"
   }
