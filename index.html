@@ -3,62 +3,42 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MazitovaArt — Авторские картины, этно-живопись и арт-портал Вероники Мазитовой</title>
+<title>MazitovaArt — Авторские картины и этно-живопись Вероники Мазитовой</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
     --bg:       #FAF6F0;
-    --bg2:      #F3ECE3;
     --primary:  #4A354F;
     --gold:     #B88738;
     --text:     #2D252E;
     --muted:    #6E6270;
     --border:   rgba(184, 135, 56, 0.25);
   }
-  html { scroll-behavior: smooth; }
-  body { background-color: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; font-weight: 300; line-height: 1.6; overflow-x: hidden; }
+  body { background-color: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; font-weight: 300; line-height: 1.6; }
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 4rem; background: rgba(250, 246, 240, 0.9); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
   .nav-brand { display: flex; align-items: center; gap: 0.8rem; text-decoration: none; }
   .nav-logo-img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 1px solid var(--gold); }
   .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 500; color: var(--primary); }
-  .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
-  .nav-links a { color: var(--muted); font-size: 0.85rem; text-transform: uppercase; text-decoration: none; font-weight: 500; transition: color 0.3s; }
-  .nav-links a:hover { color: var(--gold); }
   #hero { min-height: 100vh; display: flex; align-items: center; padding: 7rem 4rem 3rem 4rem; }
   .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; align-items: center; width: 100%; max-width: 1200px; margin: 0 auto; }
   .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 4.8vw, 4.2rem); color: var(--primary); margin-bottom: 1.5rem; }
   .hero-title em { font-style: italic; color: var(--gold); }
-  .hero-sub { font-size: 1.05rem; color: var(--muted); max-width: 540px; margin-bottom: 2.5rem; }
   .hero-image-wrapper { position: relative; border: 1px solid var(--border); padding: 12px; background: #ffffff; box-shadow: 0 15px 35px rgba(110,98,112,0.15); }
   .hero-img { width: 100%; height: auto; display: block; }
-  .hero-tag { position: absolute; bottom: -12px; right: 20px; background: var(--primary); color: #ffffff; font-size: 0.75rem; text-transform: uppercase; padding: 0.4rem 1.2rem; }
-  .btn { display: inline-block; padding: 1rem 2.2rem; font-size: 0.8rem; text-transform: uppercase; font-weight: 600; text-decoration: none; cursor: pointer; border: none; }
-  .btn-primary { background: var(--primary); color: #ffffff; }
-  .btn-primary:hover { background: var(--gold); }
-  .btn-outline { border: 1px solid var(--primary); color: var(--primary); background: transparent; }
   section { padding: 5rem 2rem; }
   .container { max-width: 1100px; margin: 0 auto; }
-  .section-label { font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; font-weight: 600; }
   .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 3.8vw, 3rem); color: var(--primary); }
-  .section-title em { font-style: italic; color: var(--gold); }
-  .divider { width: 70px; height: 1px; background: var(--gold); margin: 1.5rem 0; }
   .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; margin-top: 3rem; }
-  .art-card { background: #ffffff; border: 1px solid var(--border); padding: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.04); display: flex; flex-direction: column; justify-content: space-between; }
+  .art-card { background: #ffffff; border: 1px solid var(--border); padding: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.04); }
   .art-img-box { position: relative; overflow: hidden; margin-bottom: 0.8rem; border: 1px solid var(--border); }
   .art-img { width: 100%; height: 320px; object-fit: cover; display: block; }
-  .art-badge { position: absolute; top: 10px; right: 10px; background: var(--primary); color: #ffffff; font-size: 0.7rem; text-transform: uppercase; padding: 0.3rem 0.8rem; z-index: 10; }
   .art-thumbs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-bottom: 1rem; }
   .thumb-item { border: 2px solid var(--border); cursor: pointer; overflow: hidden; height: 60px; position: relative; }
   .thumb-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .thumb-item.active { border-color: var(--primary); }
-  .thumb-label { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(74,53,79,0.85); color: #fff; font-size: 0.55rem; text-align: center; padding: 1px 0; }
+  .thumb-label { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(74,53,79,0.85); color: #fff; font-size: 0.55rem; text-align: center; }
   .art-title { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: var(--primary); margin-bottom: 0.4rem; font-weight: 600; }
-  .art-meta { font-size: 0.8rem; color: var(--gold); font-weight: 600; text-transform: uppercase; margin-bottom: 0.8rem; }
-  .art-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.6; margin-bottom: 1.2rem; }
-  .art-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); padding-top: 1rem; margin-top: auto; }
-  .art-price { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--primary); font-weight: 600; }
-  .btn-sm { padding: 0.6rem 1.2rem; font-size: 0.75rem; }
   footer { background: var(--primary); color: #ffffff; padding: 3rem 2rem; text-align: center; }
 </style>
 </head>
@@ -66,206 +46,38 @@
 
 <nav>
   <a class="nav-brand" href="#hero">
-    <img src="logo.png.jpg?v=2" alt="MazitovaArt" class="nav-logo-img">
+    <img src="logo.png" alt="MazitovaArt" class="nav-logo-img">
     <span class="nav-logo">MazitovaArt</span>
   </a>
-  <ul class="nav-links">
-    <li><a href="#gallery">Галерея</a></li>
-  </ul>
 </nav>
 
 <section id="hero">
   <div class="hero-grid">
-    <div class="hero-text">
-      <p class="hero-eyebrow">Студия интерьерного искусства · Этно-живопись</p>
+    <div>
       <h1 class="hero-title">Картины в <em>этно-стиле</em>, которые оживают ночью</h1>
-      <p class="hero-sub">Авторские рельефные картины и портреты с душой.</p>
     </div>
     <div class="hero-image-wrapper">
-      <img src="alga-day.jpg.jpg?v=2" alt="Алга, Кыргызстан!" class="hero-img">
-      <div class="hero-tag">Главный шедевр</div>
+      <img src="alga-day.jpg" alt="Алга, Кыргызстан!" class="hero-img">
     </div>
   </div>
 </section>
 
 <section id="gallery">
   <div class="container">
-    <div>
-      <p class="section-label">Галерея шедевров</p>
-      <h2 class="section-title">Каталог работ и <em>коллекции</em></h2>
-      <div class="divider"></div>
-    </div>
-
+    <h2 class="section-title">Галерея шедевров</h2>
     <div class="gallery-grid">
       <!-- 0. АЛГА -->
       <div class="art-card">
-        <div>
-          <div class="art-img-box">
-            <span class="art-badge">Главный шедевр</span>
-            <img id="art-img-0" src="alga-day.jpg.jpg?v=2" alt="Алга, Кыргызстан!" class="art-img">
-          </div>
-          <div class="art-thumbs">
-            <div class="thumb-item active" onclick="switchView(0, 'alga-day.jpg.jpg?v=2', this)"><img src="alga-day.jpg.jpg?v=2"><span class="thumb-label">День</span></div>
-            <div class="thumb-item" onclick="switchView(0, 'alga-night.jpg.jpg?v=2', this)"><img src="alga-night.jpg.jpg?v=2"><span class="thumb-label">Ночь</span></div>
-            <div class="thumb-item" onclick="switchView(0, 'alga-relief.jpg.jpg?v=2', this)"><img src="alga-relief.jpg.jpg?v=2"><span class="thumb-label">Рельеф</span></div>
-            <div class="thumb-item" onclick="switchView(0, 'alga-interior.jpg.jpg?v=2', this)"><img src="alga-interior.jpg.jpg?v=2"><span class="thumb-label">Интерьер</span></div>
-          </div>
-          <h3 class="art-title">«Алга, Кыргызстан!»</h3>
-          <div class="art-meta">Этно-символизм</div>
-          <p class="art-desc">Огненный конь как символ неукротимой энергии и движения вперед.</p>
+        <div class="art-img-box">
+          <img id="art-img-0" src="alga-day.jpg" alt="Алга, Кыргызстан!" class="art-img">
         </div>
-      </div>
-
-      <!-- 1. Благодарность -->
-      <div class="art-card">
-        <div>
-          <div class="art-img-box">
-            <span class="art-badge">Этно-мифология</span>
-            <img id="art-img-1" src="blagodarnost-day.jpg.jpg?v=2" alt="Благодарность" class="art-img">
-          </div>
-          <div class="art-thumbs">
-            <div class="thumb-item active" onclick="switchView(1, 'blagodarnost-day.jpg.jpg?v=2', this)"><img src="blagodarnost-day.jpg.jpg?v=2"><span class="thumb-label">День</span></div>
-            <div class="thumb-item" onclick="switchView(1, 'blagodarnost-night.jpg.jpg?v=2', this)"><img src="blagodarnost-night.jpg.jpg?v=2"><span class="thumb-label">Ночь</span></div>
-            <div class="thumb-item" onclick="switchView(1, 'blagodarnost-relief.jpg.jpg?v=2', this)"><img src="blagodarnost-relief.jpg.jpg?v=2"><span class="thumb-label">Рельеф</span></div>
-            <div class="thumb-item" onclick="switchView(1, 'blagodarnost-interioc.jpg.jpg?v=2', this)"><img src="blagodarnost-interioc.jpg.jpg?v=2"><span class="thumb-label">Интерьер</span></div>
-          </div>
-          <h3 class="art-title">1. «Благодарность»</h3>
-          <div class="art-meta">Холст 40×60 см</div>
-          <p class="art-desc">Атмосферное полотно в ночном пейзаже.</p>
+        <div class="art-thumbs">
+          <div class="thumb-item active" onclick="switchView(0, 'alga-day.jpg', this)"><img src="alga-day.jpg"><span class="thumb-label">День</span></div>
+          <div class="thumb-item" onclick="switchView(0, 'alga-night.jpg', this)"><img src="alga-night.jpg"><span class="thumb-label">Ночь</span></div>
+          <div class="thumb-item" onclick="switchView(0, 'alga-relief.jpg', this)"><img src="alga-relief.jpg"><span class="thumb-label">Рельеф</span></div>
+          <div class="thumb-item" onclick="switchView(0, 'alga-interior.jpg', this)"><img src="alga-interior.jpg"><span class="thumb-label">Интерьер</span></div>
         </div>
-      </div>
-
-      <!-- 2. Сияние Эдельвейса -->
-      <div class="art-card">
-        <div>
-          <div class="art-img-box">
-            <span class="art-badge">Светится зелёным</span>
-            <img id="art-img-2" src="edelweiss-day.jpg.jpg?v=2" alt="Сияние Эдельвейса" class="art-img">
-          </div>
-          <div class="art-thumbs">
-            <div class="thumb-item active" onclick="switchView(2, 'edelweiss-day.jpg.jpg?v=2', this)"><img src="edelweiss-day.jpg.jpg?v=2"><span class="thumb-label">День</span></div>
-            <div class="thumb-item" onclick="switchView(2, 'edelweiss-night.jpg.jpg?v=2', this)"><img src="edelweiss-night.jpg.jpg?v=2"><span class="thumb-label">Ночь</span></div>
-            <div class="thumb-item" onclick="switchView(2, 'edelweiss-relief.jpg.jpg?v=2', this)"><img src="edelweiss-relief.jpg.jpg?v=2"><span class="thumb-label">Рельеф</span></div>
-            <div class="thumb-item" onclick="switchView(2, 'edelweiss-interioc.jpg.jpg?v=2', this)"><img src="edelweiss-interioc.jpg.jpg?v=2"><span class="thumb-label">Интерьер</span></div>
-          </div>
-          <h3 class="art-title">2. «Сияние Эдельвейса»</h3>
-          <div class="art-meta">Холст 40×50 см</div>
-          <p class="art-desc">Символ чистоты и стойкости гор.</p>
-        </div>
-      </div>
-
-      <!-- 3. Закат / Душа кочевника -->
-      <div class="art-card">
-        <div>
-          <div class="art-img-box">
-            <span class="art-badge">Светится зелёным</span>
-            <img id="art-img-3" src="zakat-day.jpg.jpg?v=2" alt="Закат" class="art-img">
-          </div>
-          <div class="art-thumbs">
-            <div class="thumb-item active" onclick="switchView(3, 'zakat-day.jpg.jpg?v=2', this)"><img src="zakat-day.jpg.jpg?v=2"><span class="thumb-label">День</span></div>
-            <div class="thumb-item" onclick="switchView(3, 'zakat-night.jpg.jpg?v=2', this)"><img src="zakat-night.jpg.jpg?v=2"><span class="thumb-label">Ночь</span></div>
-            <div class="thumb-item" onclick="switchView(3, 'zakat-relief.jpg.jpg?v=2', this)"><img src="zakat-relief.jpg.jpg?v=2"><span class="thumb-label">Рельеф</span></div>
-            <div class="thumb-item" onclick="switchView(3, 'zakat-day.jpg.jpg?v=2', this)"><img src="zakat-day.jpg.jpg?v=2"><span class="thumb-label">Интерьер</span></div>
-          </div>
-          <h3 class="art-title">3. «Закат» / «Душа кочевника»</h3>
-          <div class="art-meta">Холст 60×80 см</div>
-          <p class="art-desc">Триумф монументальной живописи.</p>
-        </div>
-      </div>
-
-      <!-- 4. Танец природы -->
-      <div class="art-card">
-        <div>
-          <div class="art-img-box">
-            <span class="art-badge">Триптих</span>
-            <img id="art-img-4" src="dance-day.jpg.jpg?v=2" alt="Танец природы" class="art-img">
-          </div>
-          <div class="art-thumbs">
-            <div class="thumb-item active" onclick="switchView(4, 'dance-day.jpg.jpg?v=2', this)"><img src="dance-day.jpg.jpg?v=2"><span class="thumb-label">День</span></div>
-            <div class="thumb-item" onclick="switchView(4, 'dance-day.jpg.jpg?v=2', this)"><img src="dance-day.jpg.jpg?v=2"><span class="thumb-label">Ночь</span></div>
-            <div class="thumb-item" onclick="switchView(4, 'dance-relief.jpg.jpg?v=2', this)"><img src="dance-relief.jpg.jpg?v=2"><span class="thumb-label">Рельеф</span></div>
-            <div class="thumb-item" onclick="switchView(4, 'dance-interior.jpg.jpg?v=2', this)"><img src="dance-interior.jpg.jpg?v=2"><span class="thumb-label">Интерьер</span></div>
-          </div>
-          <h3 class="art-title">4. «Танец природы»</h3>
-          <div class="art-meta">Триптих 90×60 см</div>
-          <p class="art-desc">Танцующие женщины в традиционных костюмах.</p>
-        </div>
-      </div>
-
-      <!-- 5. Шелковый путь -->
-      <div class="art-card">
-        <div>
-          <div class="art-img-box">
-            <span class="art-badge">Текстурный песок</span>
-            <img id="art-img-5" src="silkroad-day.jpg.jpg?v=2" alt="Шелковый путь" class="art-img">
-          </div>
-          <div class="art-thumbs">
-            <div class="thumb-item active" onclick="switchView(5, 'silkroad-day.jpg.jpg?v=2', this)"><img src="silkroad-day.jpg.jpg?v=2"><span class="thumb-label">День</span></div>
-            <div class="thumb-item" onclick="switchView(5, 'silkroad-night.jpg.jpg?v=2', this)"><img src="silkroad-night.jpg.jpg?v=2"><span class="thumb-label">Ночь</span></div>
-            <div class="thumb-item" onclick="switchView(5, 'silkroad-relief.jpg.jpg?v=2', this)"><img src="silkroad-relief.jpg.jpg?v=2"><span class="thumb-label">Рельеф</span></div>
-            <div class="thumb-item" onclick="switchView(5, 'silkroad-interior.jpg.jpg?v=2', this)"><img src="silkroad-interior.jpg.jpg?v=2"><span class="thumb-label">Интерьер</span></div>
-          </div>
-          <h3 class="art-title">6. «Шелковый путь»</h3>
-          <div class="art-meta">Акрил, текстурный песок</div>
-          <p class="art-desc">Караван под сиянием полумесяца.</p>
-        </div>
-      </div>
-
-      <!-- 6. Гранаттар -->
-      <div class="art-card">
-        <div>
-          <div class="art-img-box">
-            <span class="art-badge">10 000 сом</span>
-            <img id="art-img-6" src="granat-day.jpg.jpg?v=2" alt="Гранаттар" class="art-img">
-          </div>
-          <div class="art-thumbs">
-            <div class="thumb-item active" onclick="switchView(6, 'granat-day.jpg.jpg?v=2', this)"><img src="granat-day.jpg.jpg?v=2"><span class="thumb-label">День</span></div>
-            <div class="thumb-item" onclick="switchView(6, 'granat-night.jpg.jpg?v=2', this)"><img src="granat-night.jpg.jpg?v=2"><span class="thumb-label">Ночь</span></div>
-            <div class="thumb-item" onclick="switchView(6, 'granat-relief.jpg.jpg?v=2', this)"><img src="granat-relief.jpg.jpg?v=2"><span class="thumb-label">Рельеф</span></div>
-            <div class="thumb-item" onclick="switchView(6, 'granat-interior.jpg.jpg?v=2', this)"><img src="granat-interior.jpg.jpg?v=2"><span class="thumb-label">Интерьер</span></div>
-          </div>
-          <h3 class="art-title">«Гранаттар»</h3>
-          <div class="art-meta">Холст 35×75 см</div>
-          <p class="art-desc">Символ изобилия и плодородия.</p>
-        </div>
-      </div>
-
-      <!-- 7. Слива -->
-      <div class="art-card">
-        <div>
-          <div class="art-img-box">
-            <span class="art-badge">10 000 сом</span>
-            <img id="art-img-7" src="sliva-day.jpg.jpg?v=2" alt="Слива" class="art-img">
-          </div>
-          <div class="art-thumbs">
-            <div class="thumb-item active" onclick="switchView(7, 'sliva-day.jpg.jpg?v=2', this)"><img src="sliva-day.jpg.jpg?v=2"><span class="thumb-label">День</span></div>
-            <div class="thumb-item" onclick="switchView(7, 'sliva-night.jpg.jpg?v=2', this)"><img src="sliva-night.jpg.jpg?v=2"><span class="thumb-label">Ночь</span></div>
-            <div class="thumb-item" onclick="switchView(7, 'sliva-relief.jpg.jpg?v=2', this)"><img src="sliva-relief.jpg.jpg?v=2"><span class="thumb-label">Рельеф</span></div>
-            <div class="thumb-item" onclick="switchView(7, 'sliva-interior.jpg.jpg?v=2', this)"><img src="sliva-interior.jpg.jpg?v=2"><span class="thumb-label">Интерьер</span></div>
-          </div>
-          <h3 class="art-title">«Слива»</h3>
-          <div class="art-meta">Холст 35×75 см</div>
-          <p class="art-desc">Стойкость, обновление и здоровье.</p>
-        </div>
-      </div>
-
-      <!-- 8. Алмалар -->
-      <div class="art-card">
-        <div>
-          <div class="art-img-box">
-            <span class="art-badge">10 000 сом</span>
-            <img id="art-img-8" src="alma-day.jpg.jpg?v=2" alt="Алмалар" class="art-img">
-          </div>
-          <div class="art-thumbs">
-            <div class="thumb-item active" onclick="switchView(8, 'alma-day.jpg.jpg?v=2', this)"><img src="alma-day.jpg.jpg?v=2"><span class="thumb-label">День</span></div>
-            <div class="thumb-item" onclick="switchView(8, 'alma-night.jpg.jpg?v=2', this)"><img src="alma-night.jpg.jpg?v=2"><span class="thumb-label">Ночь</span></div>
-            <div class="thumb-item" onclick="switchView(8, 'alma-relief.jpg.jpg?v=2', this)"><img src="alma-relief.jpg.jpg?v=2"><span class="thumb-label">Рельеф</span></div>
-            <div class="thumb-item" onclick="switchView(8, 'alma-interior.jpg.jpg?v=2', this)"><img src="alma-interior.jpg.jpg?v=2"><span class="thumb-label">Интерьер</span></div>
-          </div>
-          <h3 class="art-title">«Алмалар»</h3>
-          <div class="art-meta">Холст 35×75 см</div>
-          <p class="art-desc">Өз багыбызда өскөн берешен жемиштер.</p>
-        </div>
+        <h3 class="art-title">«Алга, Кыргызстан!»</h3>
       </div>
     </div>
   </div>
