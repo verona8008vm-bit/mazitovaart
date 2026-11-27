@@ -46,7 +46,7 @@
 
 <nav>
   <a class="nav-brand" href="#hero">
-    <img src="logo.png" alt="MazitovaArt" class="nav-logo-img">
+    <img src="logo.png" alt="MazitovaArt" class="nav-logo-img" onerror="this.src='logo.png.jpg'">
     <span class="nav-logo">MazitovaArt</span>
   </a>
 </nav>
@@ -57,7 +57,7 @@
       <h1 class="hero-title">Картины в <em>этно-стиле</em>, которые оживают ночью</h1>
     </div>
     <div class="hero-image-wrapper">
-      <img src="alga-day.jpg" alt="Алга, Кыргызстан!" class="hero-img">
+      <img src="alga-day.jpg" alt="Алга, Кыргызстан!" class="hero-img" onerror="this.src='alga-day.jpg.jpg'">
     </div>
   </div>
 </section>
@@ -69,13 +69,13 @@
       <!-- 0. АЛГА -->
       <div class="art-card">
         <div class="art-img-box">
-          <img id="art-img-0" src="alga-day.jpg" alt="Алга, Кыргызстан!" class="art-img">
+          <img id="art-img-0" src="alga-day.jpg" alt="Алга, Кыргызстан!" class="art-img" onerror="this.src='alga-day.jpg.jpg'">
         </div>
         <div class="art-thumbs">
-          <div class="thumb-item active" onclick="switchView(0, 'alga-day.jpg', this)"><img src="alga-day.jpg"><span class="thumb-label">День</span></div>
-          <div class="thumb-item" onclick="switchView(0, 'alga-night.jpg', this)"><img src="alga-night.jpg"><span class="thumb-label">Ночь</span></div>
-          <div class="thumb-item" onclick="switchView(0, 'alga-relief.jpg', this)"><img src="alga-relief.jpg"><span class="thumb-label">Рельеф</span></div>
-          <div class="thumb-item" onclick="switchView(0, 'alga-interior.jpg', this)"><img src="alga-interior.jpg"><span class="thumb-label">Интерьер</span></div>
+          <div class="thumb-item active" onclick="switchView(0, 'alga-day.jpg', 'alga-day.jpg.jpg', this)"><img src="alga-day.jpg" onerror="this.src='alga-day.jpg.jpg'"><span class="thumb-label">День</span></div>
+          <div class="thumb-item" onclick="switchView(0, 'alga-night.jpg', 'alga-night.jpg.jpg', this)"><img src="alga-night.jpg" onerror="this.src='alga-night.jpg.jpg'"><span class="thumb-label">Ночь</span></div>
+          <div class="thumb-item" onclick="switchView(0, 'alga-relief.jpg', 'alga-relief.jpg.jpg', this)"><img src="alga-relief.jpg" onerror="this.src='alga-relief.jpg.jpg'"><span class="thumb-label">Рельеф</span></div>
+          <div class="thumb-item" onclick="switchView(0, 'alga-interior.jpg', 'alga-interior.jpg.jpg', this)"><img src="alga-interior.jpg" onerror="this.src='alga-interior.jpg.jpg'"><span class="thumb-label">Интерьер</span></div>
         </div>
         <h3 class="art-title">«Алга, Кыргызстан!»</h3>
       </div>
@@ -88,8 +88,11 @@
 </footer>
 
 <script>
-  function switchView(cardNum, imgSrc, thumbElement) {
-    document.getElementById('art-img-' + cardNum).src = imgSrc;
+  function switchView(cardNum, primarySrc, fallbackSrc, thumbElement) {
+    const img = document.getElementById('art-img-' + cardNum);
+    img.src = primarySrc;
+    img.onerror = function() { img.src = fallbackSrc; };
+    
     const container = thumbElement.parentElement;
     const thumbs = container.getElementsByClassName('thumb-item');
     for (let t of thumbs) { t.classList.remove('active'); }
